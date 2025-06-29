@@ -1,0 +1,322 @@
+/* Banking Services Block Styles */
+.banking-services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #faf8f3 0%, #f5f1e8 100%);
+  border-radius: 24px;
+}
+
+/* Tab Navigation */
+.banking-services-nav {
+  margin-bottom: 3rem;
+}
+
+.tab-list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 8px;
+}
+
+.tab-button:hover {
+  color: #374151;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.tab-button.active {
+  color: #1f2937;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-progress {
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 33.33%;
+}
+
+/* Tab Content */
+.banking-services-content {
+  position: relative;
+  min-height: 400px;
+}
+
+.tab-panel {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.4s ease;
+  transform: translateY(20px);
+}
+
+.tab-panel.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  transform: translateY(0);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* Service Cards */
+.service-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.category-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
+
+.category-badge.grow {
+  background-color: #10b981;
+  color: white;
+}
+
+.category-badge.save {
+  background-color: #059669;
+  color: white;
+}
+
+.category-badge.borrow {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+  position: relative;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  flex: 1;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.card-link:hover {
+  color: #1f2937;
+  gap: 0.75rem;
+}
+
+.card-link svg {
+  transition: transform 0.2s ease;
+}
+
+.card-link:hover svg {
+  transform: translateX(2px);
+}
+
+.card-image {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 80px;
+  height: 80px;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.icon-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d1d5db;
+}
+
+.icon-placeholder svg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .banking-services-container {
+    padding: 2rem 1.5rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .service-card {
+    min-height: 240px;
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .banking-services-container {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+  
+  .tab-list {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .tab-button {
+    font-size: 1.25rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .service-card {
+    min-height: 200px;
+    padding: 1.25rem;
+  }
+  
+  .card-title {
+    font-size: 1.125rem;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .banking-services-container {
+    padding: 1rem 0.75rem;
+  }
+  
+  .tab-button {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .service-card {
+    padding: 1rem;
+    min-height: 180px;
+  }
+  
+  .card-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .icon-placeholder svg {
+    width: 36px;
+    height: 36px;
+  }
+}
